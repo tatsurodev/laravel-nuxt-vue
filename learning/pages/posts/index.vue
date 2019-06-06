@@ -30,7 +30,7 @@ export default {
     // asyncDataで返されたdataは同期される
     // awaitでpromiseが返されるまで待機、responseを分割代入
     let { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
+      "https://jsonplaceholder.typicode.com/posts"
     );
     return { posts: data };
   },
