@@ -11,6 +11,16 @@
   </div>
 </template>
 <script>
+export default {
+  // 初めて読み込んだときはサーバーサイドで、それ以外のときはクライアントサイドで動作
+  asyncData(context) {
+    console.log(context);
+  }
+};
+</script>
+
+<!--
+<script>
 import axios from "axios";
 export default {
   data() {
@@ -31,3 +41,4 @@ export default {
   }
 };
 </script>
+-->
