@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Nuxt App</a>
+    <nuxt-link class="navbar-brand" to="/">Nuxt App</nuxt-link>
     <button
       class="navbar-toggler"
       type="button"
