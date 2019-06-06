@@ -1,0 +1,6 @@
+.jumbotron {
+  border-radius: 0;
+  background-image: url("https://cdn.pixabay.com/photo/2014/02/28/16/45/mount-everest-276995__480.jpg");
+  height: 300px;
+  background-size: cover;
+}
