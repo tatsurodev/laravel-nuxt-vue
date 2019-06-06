@@ -20,6 +20,9 @@
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/users">Users</nuxt-link>
         </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/posts">Posts</nuxt-link>
+        </li>
       </ul>
     </div>
   </nav>
