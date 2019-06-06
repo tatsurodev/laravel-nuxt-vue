@@ -4,17 +4,21 @@
       <h2>Making API request - the Vue way</h2>
       <hr>
     </div>
-    <div class="container">
+    <div class="container row">
       <!-- vue的手法で取得されるpostsは非同期で取得されるため、読み込み時page sourceに表示されないことが難点 -->
       <!-- nuxtのasyncDataでreturnしたdataは同期されるため、レンダリング前にサーバー側で用意されpage sourceにも表示される -->
-      <h4 v-for="post in posts" :key="post.id">{{ post.title }}</h4>
+      <Card class="ml-auto mr-auto" v-for="post in posts" :key="post.id" :post="post"/>
     </div>
   </div>
 </template>
 <script>
 import axios from "axios";
+import Card from "@/components/Card";
 
 export default {
+  components: {
+    Card
+  },
   data() {
     return {
       posts: ""
