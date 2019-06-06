@@ -21,14 +21,18 @@ export default {
     };
   },
   // 初めて読み込んだときはサーバーサイドで、それ以外のときはクライアントサイドで動作
-  asyncData() {
+  async asyncData() {
     // console.log(context);
     // asyncDataで返されたdataは同期される
-    return axios.get("https://jsonplaceholder.typicode.com/todos").then(res => {
-      // console.log(res);
-      // 同期するデータ名と値のオブジェクトをreturn
-      return { posts: res.data };
-    });
+    // awaitでpromiseが返されるまで待機、responseを分割代入
+    let { data } = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos"
+    );
+    return { posts: data };
+  },
+  // タイトルをoverwrite
+  head: {
+    title: "List of Posts"
   }
 };
 </script>
