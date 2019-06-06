@@ -1,5 +1,6 @@
 <template>
   <div>
-    <h2>This is user's id X</h2>
+    <!-- $route.params.param_nameでルートパラメータにアクセス -->
+    <h2>This is user's id {{ $route.params.id }}</h2>
   </div>
 </template>
