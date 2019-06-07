@@ -63,6 +63,12 @@ export default {
     '@/assets/styles/main.css'
   ],
 
+  // グローバルにtransitionのアニメーション追加
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
+
   /*
    ** Plugins to load before mounting the App
    */
