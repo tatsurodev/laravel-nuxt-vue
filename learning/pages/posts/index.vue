@@ -25,14 +25,15 @@ export default {
     };
   },
   // 初めて読み込んだときはサーバーサイドで、それ以外のときはクライアントサイドで動作
-  async asyncData() {
+  async asyncData({ store }) {
     // console.log(context);
     // asyncDataで返されたdataは同期される
     // awaitでpromiseが返されるまで待機、responseを分割代入
     let { data } = await axios.get(
       "https://jsonplaceholder.typicode.com/posts"
     );
-    return { posts: data };
+    // return { posts: data };
+    store.dispatch("setPosts", data);
   },
   // タイトルをoverwrite
   head: {
