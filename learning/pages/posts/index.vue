@@ -7,7 +7,7 @@
     <div class="container row">
       <!-- vue的手法で取得されるpostsは非同期で取得されるため、読み込み時page sourceに表示されないことが難点 -->
       <!-- nuxtのasyncDataでreturnしたdataは同期されるため、レンダリング前にサーバー側で用意されpage sourceにも表示される -->
-      <Card class="ml-auto mr-auto" v-for="post in posts" :key="post.id" :post="post"/>
+      <Card class="ml-auto mr-auto" v-for="post in allPosts" :key="post.id" :post="post"/>
     </div>
   </div>
 </template>
@@ -23,6 +23,11 @@ export default {
     return {
       posts: ""
     };
+  },
+  computed: {
+    allPosts() {
+      return this.$store.getters.posts;
+    }
   },
   // 初めて読み込んだときはサーバーサイドで、それ以外のときはクライアントサイドで動作
   async asyncData({ store }) {
