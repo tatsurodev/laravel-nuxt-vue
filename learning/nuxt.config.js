@@ -66,7 +66,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/scrollto'],
+  plugins: ['@/plugins/scrollto', {
+    // サーバーサイドでは使えないプラグイン
+    src: '@/plugins/vueselect',
+    srr: false
+  }],
 
   /*
    ** Nuxt.js modules
