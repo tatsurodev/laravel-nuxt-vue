@@ -7,13 +7,14 @@
     <div class="container row">
       <!-- vue的手法で取得されるpostsは非同期で取得されるため、読み込み時page sourceに表示されないことが難点 -->
       <!-- nuxtのasyncDataでreturnしたdataは同期されるため、レンダリング前にサーバー側で用意されpage sourceにも表示される -->
-      <Card class="ml-auto mr-auto" v-for="post in allPosts" :key="post.id" :post="post"/>
+      <Card class="ml-auto mr-auto" v-for="post in posts" :key="post.id" :post="post"/>
     </div>
   </div>
 </template>
 <script>
 import axios from "axios";
 import Card from "@/components/Card";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -21,13 +22,14 @@ export default {
   },
   data() {
     return {
-      posts: ""
+      allPosts: ""
     };
   },
   computed: {
-    allPosts() {
-      return this.$store.getters.posts;
-    }
+    // allPosts() {
+    //   return this.$store.getters.posts;
+    // }
+    ...mapGetters(["posts"])
   },
   // 初めて読み込んだときはサーバーサイドで、それ以外のときはクライアントサイドで動作
   async asyncData({ store }) {
@@ -37,7 +39,7 @@ export default {
     let { data } = await axios.get(
       "https://jsonplaceholder.typicode.com/posts"
     );
-    // return { posts: data };
+    // return { allPosts: data };
     store.dispatch("setPosts", data);
   },
   // タイトルをoverwrite
