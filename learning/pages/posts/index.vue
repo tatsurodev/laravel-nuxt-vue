@@ -34,16 +34,16 @@ export default {
   },
   // 初めて読み込んだときはサーバーサイドで、それ以外のときはクライアントサイドで動作
   // asyncDataはリターンしたdataが同期されるが、その必要がないときはfetchでもおｋ
-  // async fetch({ store }) {
-  //   // console.log(context);
-  //   // asyncDataで返されたdataは同期される
-  //   // awaitでpromiseが返されるまで待機、responseを分割代入
-  //   let { data } = await axios.get(
-  //     "https://jsonplaceholder.typicode.com/posts"
-  //   );
-  //   // return { allPosts: data };
-  //   store.dispatch("setPosts", data);
-  // },
+  async fetch({ store }) {
+    // console.log(context);
+    // asyncDataで返されたdataは同期される
+    // awaitでpromiseが返されるまで待機、responseを分割代入
+    let { data } = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    // return { allPosts: data };
+    store.dispatch("setPosts", data);
+  },
   // タイトルをoverwrite
   head: {
     title: "List of Posts"

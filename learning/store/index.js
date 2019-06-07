@@ -21,18 +21,18 @@ export const mutations = {
 
 // actions
 export const actions = {
-  // nuxtServerInitアクションでposts一覧をアプリが起動した時にサーバーサイドで取得
-  async nuxtServerInit({
-    commit
-  }) {
-    let {
-      data
-    } = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    commit('SET_POSTS', data)
-  }
-  // setPosts({
+  // nuxtServerInitアクションでposts一覧をアプリが起動した時にサーバーサイドで取得、staticサイトでdeployするときは使えない
+  // async nuxtServerInit({
   //   commit
-  // }, posts) {
-  //   commit("SET_POSTS", posts)
+  // }) {
+  //   let {
+  //     data
+  //   } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+  //   commit('SET_POSTS', data)
   // }
+  setPosts({
+    commit
+  }, posts) {
+    commit("SET_POSTS", posts)
+  }
 }
