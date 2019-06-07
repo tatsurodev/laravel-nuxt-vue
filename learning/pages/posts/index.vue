@@ -32,7 +32,8 @@ export default {
     ...mapGetters(["posts"])
   },
   // 初めて読み込んだときはサーバーサイドで、それ以外のときはクライアントサイドで動作
-  async asyncData({ store }) {
+  // asyncDataはリターンしたdataが同期されるが、その必要がないときはfetchでもおｋ
+  async fetch({ store }) {
     // console.log(context);
     // asyncDataで返されたdataは同期される
     // awaitでpromiseが返されるまで待機、responseを分割代入
