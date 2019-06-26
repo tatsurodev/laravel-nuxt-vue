@@ -1,4 +1,4 @@
-# learning
+# laravel-nuxt-vue
 
 > My wondrous Nuxt.js project
 
