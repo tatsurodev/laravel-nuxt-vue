@@ -74,20 +74,24 @@ export default {
 
   // nuxt auth module setting
   auth: {
-    endpoints: {
-      login: {
-        url: 'login',
-        method: 'post',
-        propertyname: "meta.token"
-      },
-      user: {
-        url: 'user',
-        method: 'get',
-        propertyName: 'data'
-      },
-      logout: {
-        url: 'logout',
-        method: 'post'
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "login",
+            method: "post",
+            propertyName: "meta.token"
+          },
+          user: {
+            url: "user",
+            method: "get",
+            propertyName: "data"
+          },
+          logout: {
+            url: "logout",
+            method: "post"
+          }
+        }
       }
     }
   },

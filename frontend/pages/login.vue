@@ -2,15 +2,26 @@
   <div class="container col-md-6 mt-5">
     <h2>Login</h2>
     <hr>
-    <form>
+    <form @submit.prevent="submit">
       <div class="form-group">
         <label>Email address</label>
-        <input type="email" class="form-control" placeholder="Enter email">
+        <input
+          v-model.trim="form.email"
+          type="email"
+          class="form-control"
+          placeholder="Enter email"
+          autofocus
+        >
         <small class="form-text text-danger">Show errors here</small>
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password">
+        <input
+          v-model.trim="form.password"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+        >
         <small class="form-text text-danger">Show errors here</small>
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
@@ -22,3 +33,24 @@
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      form: {
+        email: "",
+        password: ""
+      }
+    };
+  },
+  methods: {
+    async submit() {
+      await this.$auth.loginWith("local", {
+        data: this.form
+      });
+      this.$router.push("/");
+    }
+  }
+};
+</script>
