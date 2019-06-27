@@ -62,12 +62,35 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: "http://backend.test/api"
+  },
+
+  // nuxt auth module setting
+  auth: {
+    endpoints: {
+      login: {
+        url: 'login',
+        method: 'post',
+        propertyname: "meta.token"
+      },
+      user: {
+        url: 'user',
+        method: 'get',
+        propertyName: 'data'
+      },
+      logout: {
+        url: 'logout',
+        method: 'post'
+      }
+    }
+  },
   /*
    ** Build configuration
    */
