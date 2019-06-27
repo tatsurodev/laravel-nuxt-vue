@@ -16,6 +16,17 @@ class AuthController extends Controller
             'name' => $request->name,
             'password' => bcrypt($request->password)
         ]);
-        return new UserResource($user);
+
+        // 既にユーザーを作成したのでattemptでauth userかどうかチェック、authならtoken, そうでなければnullを返す
+        // auth userでなければエラー表示
+        if (!$token = auth()->attempt($request->only(['email', 'password']))) {
+            return abort(401);
+        }
+        // resourceにtoken追加
+        return (new UserResource($request->user()))->additional([
+            'meta' => [
+                'token' => $token,
+            ],
+        ]);
     }
 }
