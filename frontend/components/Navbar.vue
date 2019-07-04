@@ -33,3 +33,15 @@
     </div>
   </nav>
 </template>
+<script>
+// mapGettersでvuexのgettersを別名で割り当てる
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters({
+      // loginしているかどうかのstateを返すgetters
+      loggedIn: "auth/authenticated"
+    })
+  }
+};
+</script>
