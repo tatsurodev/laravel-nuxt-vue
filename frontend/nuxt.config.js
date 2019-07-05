@@ -52,6 +52,11 @@ export default {
    ** Global CSS
    */
   css: [],
+
+  router: {
+    // globalにmiddleware登録、nuxt-link cycleつまりリンク変遷でエラーをクリア
+    middleware: ['clearValidationErrors']
+  },
   /*
    ** Plugins to load before mounting the App
    */
