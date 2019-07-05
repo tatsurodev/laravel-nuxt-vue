@@ -57,6 +57,7 @@ export default {
    */
   plugins: [
     './plugins/mixins/user.js',
+    './plugins/mixins/validation.js',
     './plugins/axios.js',
   ],
   /*
