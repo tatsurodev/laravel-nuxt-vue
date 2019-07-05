@@ -45,11 +45,21 @@ export default {
     };
   },
   methods: {
-    async submit() {
-      await this.$auth.loginWith("local", {
-        data: this.form
-      });
-      this.$router.push("/");
+    submit() {
+      this.$auth
+        .loginWith("local", {
+          data: {
+            email: this.form.email,
+            password: this.form.password
+          }
+        })
+        .then(data => {
+          console.log(data);
+          this.$router.push("/");
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };
