@@ -1,7 +1,7 @@
 <template>
   <div class="container col-md-6 mt-5">
     <h2>Login</h2>
-    <hr>
+    <hr />
     <form @submit.prevent="submit">
       <div class="form-group">
         <label>Email address</label>
@@ -11,7 +11,7 @@
           class="form-control"
           placeholder="Enter email"
           autofocus
-        >
+        />
         <small class="form-text text-danger">Show errors here</small>
       </div>
       <div class="form-group">
@@ -21,12 +21,12 @@
           type="password"
           class="form-control"
           placeholder="Password"
-        >
+        />
         <small class="form-text text-danger">Show errors here</small>
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
-    <br>
+    <br />
     <p>
       Don't have a account?
       <nuxt-link to="/register">Register</nuxt-link>
