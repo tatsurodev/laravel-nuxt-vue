@@ -16,6 +16,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
-    "nuxt": "^2.8.1"
+    "nuxt": "^2.15.8"
   }
 }
